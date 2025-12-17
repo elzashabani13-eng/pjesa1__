@@ -1,0 +1,104 @@
+let cart = 0;
+
+const items = [
+ {name:"Laptop", price:500, img:"laptop.jpg"},
+ {name:"Phone", price:300, img:"iphone.jpg"},
+ {name:"TV", price:700, img:"tv.jpg"},
+ {name:"Tablet", price:250, img:"tablet.jpg"},
+ {name:"Mouse", price:20, img:"mouse.jpg"},
+ {name:"Keyboard", price:40, img:"keyboard.jpg"},
+ {name:"Headphones", price:80, img:"headphones.jpg"},
+ {name:"Speaker", price:60, img:"speakers.jpg"},
+ {name:"Camera", price:450, img:"camera.jpg"},
+ {name:"Printer", price:150, img:"printer.jpg"},
+ {name:"Monitor", price:200, img:"monitor.jpg"},
+ {name:"Router", price:70, img:"router.jpg"},
+ {name:"Smart Watch", price:120, img:"watch.jpg"},
+ {name:"Power Bank", price:35, img:"powerbank.jpg"},
+ {name:"Charger", price:25, img:"charger.jpg"},
+ {name:"USB Cable", price:10, img:"usb.jpg"},
+ {name:"Microphone", price:90, img:"microphone.jpg"},
+ {name:"Drone", price:600, img:"drone.jpg"},
+ {name:"Projector", price:400, img:"projector.jpg"},
+ {name:"Game Console", price:550, img:"console.jpg"}
+];
+
+const productsDiv = document.getElementById("products");
+
+items.forEach(p => {
+  productsDiv.innerHTML += `
+    <div class="card">
+      <img src="${p.img}" alt="${p.name}">
+      <h3>${p.name}</h3>
+      <p>${p.price} €</p>
+      <button onclick="addCart()">Add to Cart</button>
+    </div>
+  `;
+});
+
+function addCart() {
+  cart++;
+  document.getElementById("cart").innerText = cart;
+}
+
+function registerUser(){
+  const email = document.getElementById("regEmail").value;
+  const pass = document.getElementById("regPass").value;
+  const msg = document.getElementById("regMsg");
+
+  if(email === "" || pass === ""){
+    msg.innerText = "Fill all fields";
+    msg.style.color = "red";
+    return;
+  }
+
+  localStorage.setItem("email", email);
+  localStorage.setItem("pass", pass);
+  msg.innerText = "Registered successfully";
+  msg.style.color = "green";
+}
+
+function loginUser(){
+  const email = document.getElementById("loginEmail").value;
+  const pass = document.getElementById("loginPass").value;
+  const msg = document.getElementById("loginMsg");
+
+  if(email === localStorage.getItem("email") && pass === localStorage.getItem("pass")){
+    msg.innerText = "Login successful";
+    msg.style.color = "green";
+  } else {
+    msg.innerText = "Wrong credentials";
+    msg.style.color = "red";
+  }
+}
+
+function validateContact() {
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
+  const msg = document.getElementById("contactMsg");
+
+  if(name === "" || email === "" || message === ""){
+    msg.style.color = "red";
+    msg.textContent = "All fields are required!";
+    return false;
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if(!emailRegex.test(email)){
+    msg.style.color = "red";
+    msg.textContent = "Please enter a valid email!";
+    return false;
+  }
+
+  if(message.length < 10){
+    msg.style.color = "red";
+    msg.textContent = "Message must be at least 10 characters!";
+    return false;
+  }
+
+  msg.style.color = "green";
+  msg.textContent = "Message sent successfully!";
+  return false;
+}
+
