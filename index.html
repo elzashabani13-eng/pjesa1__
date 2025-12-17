@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ElectroBee</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">ElectroBee ⚡</div>
+
+  <div class="menu">
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#contact">Contact</a>
+    <a href="#login">Login</a>
+    <a href="#register">Register</a>
+    <span class="cart-display">🛒 <span id="cart">0</span></span>
+  </div>
+</nav>
+
+<div class="hero" id="home">
+  <h1>Electronic Devices</h1>
+  <p>Best technology at the best prices</p>
+</div>
+
+<div class="products" id="products"></div>
+
+<div id="login" class="form-section">
+  <h2>Login</h2>
+  <input type="email" id="loginEmail" placeholder="Email"><br><br>
+  <input type="password" id="loginPass" placeholder="Password"><br><br>
+  <button onclick="loginUser()">Login</button>
+  <p id="loginMsg"></p>
+</div>
+
+<div id="register" class="form-section">
+  <h2>Register</h2>
+  <input type="email" id="regEmail" placeholder="Email"><br><br>
+  <input type="password" id="regPass" placeholder="Password"><br><br>
+  <button onclick="registerUser()">Register</button>
+  <p id="regMsg"></p>
+</div>
+
+<div id="contact" class="form-section">
+  <h2>Contact Us</h2>
+  <form onsubmit="return validateContact()">
+    <input type="text" id="name" name="name" placeholder="Your Name"><br>
+    <input type="email" id="email" name="email" placeholder="Your Email"><br>
+    <textarea id="message" name="message" placeholder="Message"></textarea><br>
+    <button type="submit">Send</button>
+  </form>
+  <p id="contactMsg"></p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
