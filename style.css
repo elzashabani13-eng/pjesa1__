@@ -1,0 +1,102 @@
+body {
+  font-family: Arial;
+  margin: 0;
+  background: #f3f3f3;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+#products,
+#login,
+#register,
+#contact {
+  scroll-margin-top: 110px;
+}
+
+nav {
+  background: #131921;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.logo {
+  color: #ffd814;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.menu a {
+  color: white;
+  margin: 10px;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
+
+.hero {
+  padding: 30px;
+  text-align: center;
+  margin-top: 90px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.card button {
+  background: #ffd814;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.form-section {
+  background: #fff;
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+form input, form textarea {
+  width: 80%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+form button {
+  background: #131921;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+#contactMsg, #loginMsg, #regMsg {
+  margin-top: 10px;
+  font-weight: bold;
+}
